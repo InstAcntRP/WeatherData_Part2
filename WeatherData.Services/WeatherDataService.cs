@@ -16,7 +16,8 @@ public class WeatherDataService: IWeatherDataService
     {
         Console.WriteLine("GetWeatherDataViaAPI");
         //await Task.Delay(1);
-        HttpResponseMessage responseMessage =  await _httpClient.GetAsync("https://api.tomorrow.io/v4/weather/forecast?location=new%20york&apikey=oYe6xAYp7mNaAI4bOmMVzqHnZqHiggNq");
+        //HttpResponseMessage responseMessage =  await _httpClient.GetAsync("https://api.tomorrow.io/v4/weather/forecast?location=new%20york&apikey=oYe6xAYp7mNaAI4bOmMVzqHnZqHiggNq");
+		HttpResponseMessage responseMessage = await _httpClient.GetAsync("https://api.tomorrow.io/v4/weather/forecast?location=42.3478,-71.0466&apikey=oYe6xAYp7mNaAI4bOmMVzqHnZqHiggNq");
         if(responseMessage.IsSuccessStatusCode)
         {
             string? weatherDataStr = await responseMessage.Content.ReadAsStringAsync();
